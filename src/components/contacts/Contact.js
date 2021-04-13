@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Contacts } from './Contacts';
 
 export const Contact = () => {
 
@@ -7,40 +8,36 @@ export const Contact = () => {
     console.log(contacts);
 
     return (
+        
+        <>
         <div>
-        <table class="table shadow table-hover ">
+        <table class="table small table-hover">
+           
          <thead>
             <tr>
-                <th scope="col">
+                <td >
                     <div className="custom-control custom-checkbox ">
                         <input type="checkbox" className="custom-control-input" />
                         <label className="custom-control-label"></label>
-
-
                     </div>
-                
-                
-                
-                </th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
+                </td>
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Email</td>
             </tr>
         </thead>
             <tbody>
             {contacts.map((contact)=>{
-               return (<tr>
-
-                <th scope="row">1</th>
-                <td>{contact.name}</td>
-                <td>{contact.phone}</td>
-                <td>{contact.email}</td>
-                </tr>)
+               return (
+                    <Contacts contact={contact}/>
+               )
 
             } )}
    
             </tbody>
+        
         </table>
         </div>
+        </>
     )
 }
